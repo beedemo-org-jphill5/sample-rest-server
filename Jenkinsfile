@@ -11,7 +11,7 @@ pipeline {
             sh 'mvn clean package'
          }
       }
-stage('Development Tests') {
+      stage('Development Tests') {
          when {
             beforeAgent true
             branch 'development'
