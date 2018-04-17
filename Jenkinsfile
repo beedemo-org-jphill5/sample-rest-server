@@ -1,16 +1,11 @@
 pipeline {
-   agent { docker { image 'maven:3.5-alpine' } }
+   agent any
 
    options {
       buildDiscarder(logRotator(numToKeepStr:'10'))
    }
 
    stages {
-      stage('Build') {
-         steps {
-            sh 'mvn clean package'
-         }
-      }
       stage('Development Tests') {
          when {
             beforeAgent true
